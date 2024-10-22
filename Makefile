@@ -14,15 +14,15 @@ RM	=	rm -f
 
 all: $(NAME)
 
-# Asegúrate de que la libft esté compilada
+
 $(LIB):
 	make -C $(LIBPATH)
 
-# Crear la biblioteca libftprintf.a incluyendo los objetos de ft_printf y libft
-$(NAME): $(OBJ_FILES) $(LIB)
-	cp $(LIB) $(NAME) # Copia libft.a al nombre de libftprintf.a
-	$(AR) $(NAME) $(OBJ_FILES) # Agrega los objetos de ft_printf a libftprintf.a
 
+$(NAME): $(OBJ_FILES) $(LIB)
+	cp $(LIB) $(NAME) 
+	$(AR) $(NAME) $(OBJ_FILES) 
+	
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
